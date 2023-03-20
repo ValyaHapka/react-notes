@@ -1,0 +1,34 @@
+.note {
+  height: 400px;
+  width: 285px;
+  padding: 25px 15px;
+  border-radius: 8px;
+  border: 1px solid #9d12d4;
+  &_head {
+    display: flex;
+    &_buttons {
+      display: flex;
+      margin-left: auto;
+      img {
+        cursor: pointer;
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+  &_area {
+    width: 100%;
+    height: 320px;
+    resize: none;
+  }
+  &_tags {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    top: 290px;
+  }
+  hr {
+    background-color: #9d12d4;
+  }
+}
