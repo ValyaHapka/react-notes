@@ -7,6 +7,7 @@ const initialState: NoteState = {
   baseNotes: [],
   notes: [],
   json: [],
+  search: '',
 };
 
 export const notesSlice = createSlice({
@@ -28,12 +29,17 @@ export const notesSlice = createSlice({
       state.baseNotes = state.baseNotes.filter((n) => n.id !== action.payload);
     },
     searchNotesByTags: (state, action) => {
+      state.search = action.payload;
       function filterBySearch(notes: NoteProps[]) {
         return notes.filter((note) =>
-          note.tags?.find((tag) => tag.toLowerCase().includes(action.payload)),
+          note.tags?.find((tag) => tag.toLowerCase().includes(state.search.toLowerCase())),
         );
       }
-      state.notes = filterBySearch(state.baseNotes);
+      if (state.search === '') {
+        state.notes = state.baseNotes;
+      } else {
+        state.notes = filterBySearch(state.baseNotes);
+      }
     },
   },
 });

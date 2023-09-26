@@ -9,4 +9,5 @@ export interface NoteState {
   baseNotes: NoteProps[];
   notes: NoteProps[];
   json: any[];
+  search: string;
 }
